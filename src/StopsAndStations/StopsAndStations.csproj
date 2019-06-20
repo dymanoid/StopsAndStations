@@ -53,6 +53,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ModConfiguration.cs" />
+    <Compile Include="ModStorage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StopsAndStationsMod.cs" />
     <Compile Include="PassengerCountLimiter.cs" />

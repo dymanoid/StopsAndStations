@@ -5,10 +5,14 @@
 namespace StopsAndStations
 {
     using System;
+    using System.Linq;
+    using ColossalFramework.Plugins;
     using ICities;
 
     /// <summary>
     /// A service that observes the stops in the city and calculates their current passenger count.
+    /// Based on the provided <see cref="ModConfiguration"/>, it also limits the number of citizens
+    /// waiting for transport at those stops by setting the passenger status to 'cannot use transport'.
     /// </summary>
     public sealed class PassengerCountLimiter : ThreadingExtensionBase
     {
@@ -23,6 +27,8 @@ namespace StopsAndStations
         private readonly NetNode[] nodes;
         private readonly TransportLine[] transportLines;
 
+        private ModConfiguration configuration;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="PassengerCountLimiter"/> class.
         /// </summary>
@@ -33,6 +39,20 @@ namespace StopsAndStations
             pathUnits = PathManager.instance.m_pathUnits.m_buffer;
             nodes = NetManager.instance.m_nodes.m_buffer;
             transportLines = TransportManager.instance.m_lines.m_buffer;
+        }
+
+        /// <summary>
+        /// A method that is called by the game after this instance is created.
+        /// </summary>
+        /// <param name="threading">A reference to the game's <see cref="IThreading"/> implementation.</param>
+        public override void OnCreated(IThreading threading)
+        {
+            var mod = PluginManager.instance.GetPluginsInfo()
+                .Select(p => p.userModInstance)
+                .OfType<StopsAndStationsMod>()
+                .FirstOrDefault();
+
+            configuration = mod?.ConfigProvider.Configuration ?? new ModConfiguration();
         }
 
         /// <summary>
@@ -97,31 +117,37 @@ namespace StopsAndStations
             switch (transportLines[transportLineId].Info?.m_transportType)
             {
                 case TransportInfo.TransportType.EvacuationBus:
-                    return 100;
+                    return configuration.MaxWaitingPassengersEvacuationBus;
 
                 case TransportInfo.TransportType.Bus:
+                    return configuration.MaxWaitingPassengersBus;
+
                 case TransportInfo.TransportType.TouristBus:
-                    return 50;
-
-                case TransportInfo.TransportType.Airplane:
-                    return 250;
-
-                case TransportInfo.TransportType.CableCar:
-                    return 50;
-
-                case TransportInfo.TransportType.HotAirBalloon:
-                    return 20;
-
-                case TransportInfo.TransportType.Ship:
-                    return 200;
-
-                case TransportInfo.TransportType.Metro:
-                case TransportInfo.TransportType.Monorail:
-                case TransportInfo.TransportType.Train:
-                    return 250;
+                    return configuration.MaxWaitingPassengersTouristBus;
 
                 case TransportInfo.TransportType.Tram:
-                    return 80;
+                    return configuration.MaxWaitingPassengersTram;
+
+                case TransportInfo.TransportType.Metro:
+                    return configuration.MaxWaitingPassengersMetro;
+
+                case TransportInfo.TransportType.Train:
+                    return configuration.MaxWaitingPassengersTrain;
+
+                case TransportInfo.TransportType.Monorail:
+                    return configuration.MaxWaitingPassengersMonorail;
+
+                case TransportInfo.TransportType.Airplane:
+                    return configuration.MaxWaitingPassengersAirplane;
+
+                case TransportInfo.TransportType.Ship:
+                    return configuration.MaxWaitingPassengersShip;
+
+                case TransportInfo.TransportType.CableCar:
+                    return configuration.MaxWaitingPassengersCableCar;
+
+                case TransportInfo.TransportType.HotAirBalloon:
+                    return configuration.MaxWaitingPassengersHotAirBalloon;
 
                 default:
                     return int.MaxValue;
