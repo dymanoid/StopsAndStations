@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StopsAndStationsMod.cs" />
+    <Compile Include="PassengerCountLimiter.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="GitVersionTask">
