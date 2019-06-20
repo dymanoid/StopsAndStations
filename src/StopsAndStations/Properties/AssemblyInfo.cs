@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("dymanoid")]
 [assembly: AssemblyProduct("StopsAndStations")]
-[assembly: AssemblyCopyright("Copyright © 2019 dymanoid")]
+[assembly: AssemblyCopyright("Copyright © 2019, dymanoid")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
