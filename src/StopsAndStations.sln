@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29009.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StopsAndStations", "StopsAndStations\StopsAndStations.csproj", "{D4407D5B-7D55-4075-B8D0-D4A6E65412B2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D4407D5B-7D55-4075-B8D0-D4A6E65412B2}.Debug|x64.ActiveCfg = Debug|x64
+		{D4407D5B-7D55-4075-B8D0-D4A6E65412B2}.Debug|x64.Build.0 = Debug|x64
+		{D4407D5B-7D55-4075-B8D0-D4A6E65412B2}.Release|x64.ActiveCfg = Release|x64
+		{D4407D5B-7D55-4075-B8D0-D4A6E65412B2}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B0C78569-8C01-4E6C-A585-8A01153494A6}
+	EndGlobalSection
+EndGlobal
