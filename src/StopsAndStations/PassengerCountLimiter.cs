@@ -47,11 +47,12 @@ namespace StopsAndStations
             for (int i = 0; i < instances.Length; ++i)
             {
                 ref var instance = ref instances[i];
-                if ((instance.m_flags & InstanceUsingTransport) == InstanceUsingTransport && instance.m_path != 0)
+                var pathId = instance.m_path;
+                if (pathId != 0 && (instance.m_flags & InstanceUsingTransport) == InstanceUsingTransport)
                 {
-                    var pathPosition = pathUnits[instance.m_path].GetPosition(instance.m_pathPositionIndex >> 1);
-                    ushort node = segments[pathPosition.m_segment].m_startNode;
-                    passengerCount[node]++;
+                    var pathPosition = pathUnits[pathId].GetPosition(instance.m_pathPositionIndex >> 1);
+                    ushort nodeId = segments[pathPosition.m_segment].m_startNode;
+                    ++passengerCount[nodeId];
                 }
             }
         }
@@ -68,11 +69,14 @@ namespace StopsAndStations
             for (var i = startIndex; i < endIndex; ++i)
             {
                 ref var instance = ref instances[i];
-                if ((instance.m_flags & InstanceUsingTransport) == InstanceUsingTransport && instance.m_path != 0)
+                var pathId = instance.m_path;
+                if (pathId != 0
+                    && instance.m_waitCounter == 0
+                    && (instance.m_flags & InstanceUsingTransport) == InstanceUsingTransport)
                 {
-                    var pathPosition = pathUnits[instance.m_path].GetPosition(instance.m_pathPositionIndex >> 1);
+                    var pathPosition = pathUnits[pathId].GetPosition(instance.m_pathPositionIndex >> 1);
                     ushort nodeId = segments[pathPosition.m_segment].m_startNode;
-                    if (instance.m_waitCounter == 0 && passengerCount[nodeId] >= GetMaximumAllowedPassengers(nodeId))
+                    if (passengerCount[nodeId] > GetMaximumAllowedPassengers(nodeId))
                     {
                         --passengerCount[nodeId];
                         instance.m_flags |= CitizenInstance.Flags.BoredOfWaiting;
@@ -87,7 +91,7 @@ namespace StopsAndStations
             var transportLineId = nodes[nodeId].m_transportLine;
             if (transportLineId == 0)
             {
-                return 0;
+                return int.MaxValue;
             }
 
             switch (transportLines[transportLineId].Info?.m_transportType)
