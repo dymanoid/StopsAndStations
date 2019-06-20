@@ -5,10 +5,10 @@
 namespace StopsAndStations
 {
     using System;
-    using System.IO;
+    using System.Linq;
     using ColossalFramework;
     using ColossalFramework.Globalization;
-    using ColossalFramework.IO;
+    using ColossalFramework.Plugins;
     using ICities;
     using SkyTools.Configuration;
     using SkyTools.Localization;
@@ -19,7 +19,7 @@ namespace StopsAndStations
     /// <summary>The main class of the Stops and Stations mod.</summary>
     public sealed class StopsAndStationsMod : LoadingExtensionBase, IUserMod
     {
-        private const ulong WorkshopId = 0;
+        private const ulong WorkshopId = 1776052533ul;
         private const string NoWorkshopMessage = "Stops and Stations can only run when subscribed to in Steam Workshop";
 
         private readonly string modVersion = GitVersion.GetAssemblyVersion(typeof(StopsAndStationsMod).Assembly);
@@ -148,13 +148,10 @@ namespace StopsAndStations
 
         private static string GetModPath()
         {
-            /*PluginManager.PluginInfo pluginInfo = PluginManager.instance.GetPluginsInfo()
+            PluginManager.PluginInfo pluginInfo = PluginManager.instance.GetPluginsInfo()
                 .FirstOrDefault(pi => pi.publishedFileID.AsUInt64 == WorkshopId);
 
-            return pluginInfo?.modPath;*/
-
-            // TODO: enable Workshop mode
-            return Path.Combine(DataLocation.modsPath,  "StopsAndStations");
+            return pluginInfo?.modPath;
         }
 
         private void GameSaving(object sender, EventArgs e) => StorageBase.CurrentLevelStorage.Serialize(ConfigProvider);
