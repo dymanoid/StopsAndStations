@@ -2,7 +2,7 @@
 <language id="ko" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
   <translation id="Passengers" value="Configuration" />
-  <translation id="MaximumPassengers" value="Maximum passengers waitng on a transport line stop:" />
+  <translation id="MaximumPassengers" value="Maximum passengers waitng at a transport line stop:" />
 
   <translation id="MaxWaitingPassengersBus" value="Line Bus" />
   <translation id="MaxWaitingPassengersEvacuationBus" value="Evacuation Bus" />
