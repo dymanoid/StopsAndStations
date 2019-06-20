@@ -11,8 +11,10 @@ namespace StopsAndStations
     using ColossalFramework.IO;
     using ICities;
     using SkyTools.Configuration;
+    using SkyTools.Localization;
     using SkyTools.Storage;
     using SkyTools.Tools;
+    using SkyTools.UI;
 
     /// <summary>The main class of the Stops and Stations mod.</summary>
     public sealed class StopsAndStationsMod : LoadingExtensionBase, IUserMod
@@ -22,6 +24,8 @@ namespace StopsAndStations
 
         private readonly string modVersion = GitVersion.GetAssemblyVersion(typeof(StopsAndStationsMod).Assembly);
         private readonly string modPath = GetModPath();
+        private LocalizationProvider localizationProvider;
+        private ConfigUI configUI;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="StopsAndStationsMod"/> class.
@@ -51,6 +55,7 @@ namespace StopsAndStations
                 return;
             }
 
+            localizationProvider = new LocalizationProvider(Name, modPath);
             ConfigProvider.LoadDefaultConfiguration();
             Log.Info("The 'Stops and Stations' mod has been enabled, version: " + modVersion);
         }
@@ -64,9 +69,40 @@ namespace StopsAndStations
             }
 
             ConfigProvider.SaveDefaultConfiguration();
+            CloseConfigUI();
+            localizationProvider = null;
             Log.Info("The 'Stops and Stations' mod has been disabled.");
         }
 
+        /// <summary>Called when this mod's settings page needs to be created.</summary>
+        /// <param name="helper">
+        /// An <see cref="UIHelperBase"/> reference that can be used to construct the mod's settings page.
+        /// </param>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1822:MarkMembersAsStatic", Justification = "Must be instance method due to C:S API")]
+        public void OnSettingsUI(UIHelperBase helper)
+        {
+            if (string.IsNullOrEmpty(modPath))
+            {
+                helper?.AddGroup(NoWorkshopMessage);
+                return;
+            }
+
+            if (helper == null || ConfigProvider == null)
+            {
+                return;
+            }
+
+            if (ConfigProvider.Configuration == null)
+            {
+                Log.Warning("The 'Stops and Stations' mod wants to display the configuration page, but the configuration is unexpectedly missing.");
+                ConfigProvider.LoadDefaultConfiguration();
+            }
+
+            IViewItemFactory itemFactory = new CitiesViewItemFactory(helper);
+            CloseConfigUI();
+            configUI = ConfigUI.Create(ConfigProvider, itemFactory);
+            ApplyLanguage();
+        }
 
         /// <summary>
         /// Called when a game level is loaded. If applicable, activates the Real Time mod for the loaded level.
@@ -122,5 +158,25 @@ namespace StopsAndStations
         }
 
         private void GameSaving(object sender, EventArgs e) => StorageBase.CurrentLevelStorage.Serialize(ConfigProvider);
+
+        private void ApplyLanguage()
+        {
+            if (!SingletonLite<LocaleManager>.exists)
+            {
+                return;
+            }
+
+            localizationProvider.LoadTranslation(LocaleManager.instance.language);
+            configUI?.Translate(localizationProvider);
+        }
+
+        private void CloseConfigUI()
+        {
+            if (configUI != null)
+            {
+                configUI.Close();
+                configUI = null;
+            }
+        }
     }
 }

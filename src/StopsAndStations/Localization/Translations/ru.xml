@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<language id="ru" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <translation id="Passengers" value="Конфигурация" />
+  <translation id="MaximumPassengers" value="Максимальное число пассажиров, ожидающих на остановке:" />
+
+  <translation id="MaxWaitingPassengersBus" value="Автобус" />
+  <translation id="MaxWaitingPassengersEvacuationBus" value="Эвакуац. автобус" />
+  <translation id="MaxWaitingPassengersTouristBus" value="Экскурс. автобус" />
+  <translation id="MaxWaitingPassengersTram" value="Трамвай" />
+  <translation id="MaxWaitingPassengersMetro" value="Метро" />
+  <translation id="MaxWaitingPassengersTrain" value="Поезд" />
+  <translation id="MaxWaitingPassengersMonorail" value="Монорейл" />
+  <translation id="MaxWaitingPassengersShip" value="Корабль" />
+  <translation id="MaxWaitingPassengersAirplane" value="Самолёт" />
+  <translation id="MaxWaitingPassengersCableCar" value="Канатная дор." />
+  <translation id="MaxWaitingPassengersHotAirBalloon" value="Возд. шар" />
+  
+</language>

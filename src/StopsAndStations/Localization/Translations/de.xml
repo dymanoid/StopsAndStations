@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<language id="de" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <translation id="Passengers" value="Konfiguration" />
+  <translation id="MaximumPassengers" value="Maximale Anzahl der Passagiere, die auf den Haltestellen warten:" />
+
+  <translation id="MaxWaitingPassengersBus" value="Bus" />
+  <translation id="MaxWaitingPassengersEvacuationBus" value="Evakuierungs-Bus" />
+  <translation id="MaxWaitingPassengersTouristBus" value="Sightseeing-Bus" />
+  <translation id="MaxWaitingPassengersTram" value="Straßenbahn" />
+  <translation id="MaxWaitingPassengersMetro" value="Metro" />
+  <translation id="MaxWaitingPassengersTrain" value="Zug" />
+  <translation id="MaxWaitingPassengersMonorail" value="Monorail-Zug" />
+  <translation id="MaxWaitingPassengersShip" value="Schiff" />
+  <translation id="MaxWaitingPassengersAirplane" value="Flugzeug" />
+  <translation id="MaxWaitingPassengersCableCar" value="Seilbahn" />
+  <translation id="MaxWaitingPassengersHotAirBalloon" value="Ballon" />
+
+</language>
