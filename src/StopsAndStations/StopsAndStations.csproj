@@ -124,6 +124,6 @@
   <PropertyGroup>
     <PostBuildEvent>xcopy /y /q /d "$(TargetPath)" "d:\Data\SteamLibrary\steamapps\workshop\content\255710\1776052533\"
 xcopy /y /q /d "$(TargetDir)SkyTools.dll" "d:\Data\SteamLibrary\steamapps\workshop\content\255710\1776052533\"
-xcopy /y /q /i "d:\Data\SteamLibrary\steamapps\workshop\content\255710\1776052533\Localization"</PostBuildEvent>
+xcopy /y /q /i "$(TargetDir)Localization\Translations\*.xml" "d:\Data\SteamLibrary\steamapps\workshop\content\255710\1776052533\Localization"</PostBuildEvent>
   </PropertyGroup>
 </Project>
