@@ -2,18 +2,18 @@
 <language id="fr" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
   <translation id="Passengers" value="Configuration" />
-  <translation id="MaximumPassengers" value="Maximum passengers waitng at a transport line stop:" />
+  <translation id="MaximumPassengers" value="Maximum de passengers attendant à un arret:" />
 
-  <translation id="MaxWaitingPassengersBus" value="Line Bus" />
-  <translation id="MaxWaitingPassengersEvacuationBus" value="Evacuation Bus" />
-  <translation id="MaxWaitingPassengersTouristBus" value="Sightseeing Bus" />
+  <translation id="MaxWaitingPassengersBus" value="Bus de Ligne" />
+  <translation id="MaxWaitingPassengersEvacuationBus" value="Bus D'évacuation" />
+  <translation id="MaxWaitingPassengersTouristBus" value="Bus Touristique" />
   <translation id="MaxWaitingPassengersTram" value="Tram" />
-  <translation id="MaxWaitingPassengersMetro" value="Metro" />
+  <translation id="MaxWaitingPassengersMetro" value="Métro" />
   <translation id="MaxWaitingPassengersTrain" value="Train" />
   <translation id="MaxWaitingPassengersMonorail" value="Monorail" />
-  <translation id="MaxWaitingPassengersShip" value="Ship" />
-  <translation id="MaxWaitingPassengersAirplane" value="Airplane" />
-  <translation id="MaxWaitingPassengersCableCar" value="Cable Car" />
-  <translation id="MaxWaitingPassengersHotAirBalloon" value="Hot Air Balloon" />
+  <translation id="MaxWaitingPassengersShip" value="Bateau" />
+  <translation id="MaxWaitingPassengersAirplane" value="Avion" />
+  <translation id="MaxWaitingPassengersCableCar" value="Téléphérique" />
+  <translation id="MaxWaitingPassengersHotAirBalloon" value="Montgolfière" />
 
 </language>
