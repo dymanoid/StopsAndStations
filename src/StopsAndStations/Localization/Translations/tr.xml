@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<language id="tr" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <translation id="Passengers" value="Yapılandırma" />
+  <translation id="MaximumPassengers" value="Bir taşıma hattında bekleyen maksimum yolcu sayısı:" />
+  <translation id="MaxWaitingPassengersBus" value="Hat Otobüsü" />
+  <translation id="MaxWaitingPassengersEvacuationBus" value="Tahliye Otobüsü" />
+  <translation id="MaxWaitingPassengersTouristBus" value="Gezi otobüsü" />
+  <translation id="MaxWaitingPassengersTram" value="Tramvay" />
+  <translation id="MaxWaitingPassengersMetro" value="Metro" />
+  <translation id="MaxWaitingPassengersTrain" value="Tren" />
+  <translation id="MaxWaitingPassengersMonorail" value="Monorail" />
+  <translation id="MaxWaitingPassengersShip" value="Gemi" />
+  <translation id="MaxWaitingPassengersAirplane" value="Uçak" />
+  <translation id="MaxWaitingPassengersCableCar" value="Teleferik" />
+  <translation id="MaxWaitingPassengersHotAirBalloon" value="Sıcak Hava Balonu" />
+ 
+</language>
