@@ -24,6 +24,9 @@ namespace StopsAndStations
 
         private readonly string modVersion = GitVersion.GetAssemblyVersion(typeof(StopsAndStationsMod).Assembly);
         private readonly string modPath = GetModPath();
+
+        private readonly ConfigurationProvider<ModConfiguration> configProvider;
+
         private LocalizationProvider localizationProvider;
         private ConfigUI configUI;
 
@@ -32,7 +35,7 @@ namespace StopsAndStations
         /// </summary>
         public StopsAndStationsMod()
         {
-            ConfigProvider = new ConfigurationProvider<ModConfiguration>(ModConfiguration.StorageId, Name, () => new ModConfiguration());
+            configProvider = new ConfigurationProvider<ModConfiguration>(ModConfiguration.StorageId, Name, () => new ModConfiguration());
         }
 
         /// <summary>Gets the name of this mod.</summary>
@@ -42,9 +45,9 @@ namespace StopsAndStations
         public string Description => "Prevents the stops and stations from being unrealistically overcrowded. Version: " + modVersion;
 
         /// <summary>
-        /// Gets the configuration provider service.
+        /// Gets or sets the object where the mod logic is implemented.
         /// </summary>
-        internal ConfigurationProvider<ModConfiguration> ConfigProvider { get; }
+        internal PassengerCountLimiter PassengerCountLimiter { get; set; }
 
         /// <summary>Called when this mod is enabled.</summary>
         public void OnEnabled()
@@ -56,7 +59,7 @@ namespace StopsAndStations
             }
 
             localizationProvider = new LocalizationProvider(Name, modPath);
-            ConfigProvider.LoadDefaultConfiguration();
+            configProvider.LoadDefaultConfiguration();
             Log.Info("The 'Stops and Stations' mod has been enabled, version: " + modVersion);
         }
 
@@ -68,7 +71,7 @@ namespace StopsAndStations
                 return;
             }
 
-            ConfigProvider.SaveDefaultConfiguration();
+            configProvider.SaveDefaultConfiguration();
             CloseConfigUI();
             localizationProvider = null;
             Log.Info("The 'Stops and Stations' mod has been disabled.");
@@ -87,20 +90,20 @@ namespace StopsAndStations
                 return;
             }
 
-            if (helper == null || ConfigProvider == null)
+            if (helper == null || configProvider == null)
             {
                 return;
             }
 
-            if (ConfigProvider.Configuration == null)
+            if (configProvider.Configuration == null)
             {
                 Log.Warning("The 'Stops and Stations' mod wants to display the configuration page, but the configuration is unexpectedly missing.");
-                ConfigProvider.LoadDefaultConfiguration();
+                configProvider.LoadDefaultConfiguration();
             }
 
             IViewItemFactory itemFactory = new CitiesViewItemFactory(helper);
             CloseConfigUI();
-            configUI = ConfigUI.Create(ConfigProvider, itemFactory);
+            configUI = ConfigUI.Create(configProvider, itemFactory);
             ApplyLanguage();
         }
 
@@ -130,7 +133,11 @@ namespace StopsAndStations
 
             Log.Info($"The 'Stops and Stations' mod starts, game mode {mode}.");
             StorageBase.CurrentLevelStorage.GameSaving += GameSaving;
-            StorageBase.CurrentLevelStorage.Deserialize(ConfigProvider);
+            StorageBase.CurrentLevelStorage.Deserialize(configProvider);
+            if (PassengerCountLimiter != null)
+            {
+                PassengerCountLimiter.Configuration = configProvider.Configuration;
+            }
         }
 
         /// <summary>
@@ -142,7 +149,7 @@ namespace StopsAndStations
             if (!string.IsNullOrEmpty(modPath))
             {
                 StorageBase.CurrentLevelStorage.GameSaving -= GameSaving;
-                ConfigProvider.LoadDefaultConfiguration();
+                configProvider.LoadDefaultConfiguration();
             }
         }
 
@@ -154,7 +161,7 @@ namespace StopsAndStations
             return pluginInfo?.modPath;
         }
 
-        private void GameSaving(object sender, EventArgs e) => StorageBase.CurrentLevelStorage.Serialize(ConfigProvider);
+        private void GameSaving(object sender, EventArgs e) => StorageBase.CurrentLevelStorage.Serialize(configProvider);
 
         private void ApplyLanguage()
         {

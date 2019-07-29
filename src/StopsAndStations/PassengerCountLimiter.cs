@@ -5,7 +5,6 @@
 namespace StopsAndStations
 {
     using System;
-    using System.Linq;
     using ColossalFramework.Plugins;
     using ICities;
 
@@ -27,8 +26,6 @@ namespace StopsAndStations
         private readonly NetNode[] nodes;
         private readonly TransportLine[] transportLines;
 
-        private ModConfiguration configuration;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="PassengerCountLimiter"/> class.
         /// </summary>
@@ -42,17 +39,18 @@ namespace StopsAndStations
         }
 
         /// <summary>
+        /// Gets or sets the mod Configuration to run with.
+        /// </summary>
+        public ModConfiguration Configuration { get; set; }
+
+        /// <summary>
         /// A method that is called by the game after this instance is created.
         /// </summary>
         /// <param name="threading">A reference to the game's <see cref="IThreading"/> implementation.</param>
         public override void OnCreated(IThreading threading)
         {
-            var mod = PluginManager.instance.GetPluginsInfo()
-                .Select(p => p.userModInstance)
-                .OfType<StopsAndStationsMod>()
-                .FirstOrDefault();
-
-            configuration = mod?.ConfigProvider.Configuration ?? new ModConfiguration();
+            var mod = (StopsAndStationsMod)PluginManager.instance.FindPluginInfo(GetType().Assembly).userModInstance;
+            mod.PassengerCountLimiter = this;
         }
 
         /// <summary>
@@ -62,6 +60,11 @@ namespace StopsAndStations
         /// </summary>
         public override void OnBeforeSimulationTick()
         {
+            if (Configuration == null)
+            {
+                return;
+            }
+
             Array.Clear(passengerCount, 0, passengerCount.Length);
 
             for (int i = 0; i < instances.Length; ++i)
@@ -82,6 +85,11 @@ namespace StopsAndStations
         /// </summary>
         public override void OnBeforeSimulationFrame()
         {
+            if (Configuration == null)
+            {
+                return;
+            }
+
             var step = SimulationManager.instance.m_currentFrameIndex & StepMask;
             var startIndex = step * StepSize;
             var endIndex = (step + 1) * StepSize;
@@ -117,37 +125,37 @@ namespace StopsAndStations
             switch (transportLines[transportLineId].Info?.m_transportType)
             {
                 case TransportInfo.TransportType.EvacuationBus:
-                    return configuration.MaxWaitingPassengersEvacuationBus;
+                    return Configuration.MaxWaitingPassengersEvacuationBus;
 
                 case TransportInfo.TransportType.Bus:
-                    return configuration.MaxWaitingPassengersBus;
+                    return Configuration.MaxWaitingPassengersBus;
 
                 case TransportInfo.TransportType.TouristBus:
-                    return configuration.MaxWaitingPassengersTouristBus;
+                    return Configuration.MaxWaitingPassengersTouristBus;
 
                 case TransportInfo.TransportType.Tram:
-                    return configuration.MaxWaitingPassengersTram;
+                    return Configuration.MaxWaitingPassengersTram;
 
                 case TransportInfo.TransportType.Metro:
-                    return configuration.MaxWaitingPassengersMetro;
+                    return Configuration.MaxWaitingPassengersMetro;
 
                 case TransportInfo.TransportType.Train:
-                    return configuration.MaxWaitingPassengersTrain;
+                    return Configuration.MaxWaitingPassengersTrain;
 
                 case TransportInfo.TransportType.Monorail:
-                    return configuration.MaxWaitingPassengersMonorail;
+                    return Configuration.MaxWaitingPassengersMonorail;
 
                 case TransportInfo.TransportType.Airplane:
-                    return configuration.MaxWaitingPassengersAirplane;
+                    return Configuration.MaxWaitingPassengersAirplane;
 
                 case TransportInfo.TransportType.Ship:
-                    return configuration.MaxWaitingPassengersShip;
+                    return Configuration.MaxWaitingPassengersShip;
 
                 case TransportInfo.TransportType.CableCar:
-                    return configuration.MaxWaitingPassengersCableCar;
+                    return Configuration.MaxWaitingPassengersCableCar;
 
                 case TransportInfo.TransportType.HotAirBalloon:
-                    return configuration.MaxWaitingPassengersHotAirBalloon;
+                    return Configuration.MaxWaitingPassengersHotAirBalloon;
 
                 default:
                     return int.MaxValue;
