@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <language id="ko" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
-  <translation id="Passengers" value="Configuration" />
-  <translation id="MaximumPassengers" value="Maximum passengers waitng at a transport line stop:" />
+  <translation id="Passengers" value="설정" />
+  <translation id="MaximumPassengers" value="각 정거장 당 최대 승객 수용량 :" />
 
-  <translation id="MaxWaitingPassengersBus" value="Line Bus" />
-  <translation id="MaxWaitingPassengersEvacuationBus" value="Evacuation Bus" />
-  <translation id="MaxWaitingPassengersTouristBus" value="Sightseeing Bus" />
-  <translation id="MaxWaitingPassengersTram" value="Tram" />
-  <translation id="MaxWaitingPassengersMetro" value="Metro" />
-  <translation id="MaxWaitingPassengersTrain" value="Train" />
-  <translation id="MaxWaitingPassengersMonorail" value="Monorail" />
-  <translation id="MaxWaitingPassengersShip" value="Ship" />
-  <translation id="MaxWaitingPassengersAirplane" value="Airplane" />
-  <translation id="MaxWaitingPassengersCableCar" value="Cable Car" />
-  <translation id="MaxWaitingPassengersHotAirBalloon" value="Hot Air Balloon" />
+  <translation id="MaxWaitingPassengersBus" value="여객 버스" />
+  <translation id="MaxWaitingPassengersEvacuationBus" value="대피 버스" />
+  <translation id="MaxWaitingPassengersTouristBus" value="투어 버스" />
+  <translation id="MaxWaitingPassengersTram" value="트램" />
+  <translation id="MaxWaitingPassengersMetro" value="지하철" />
+  <translation id="MaxWaitingPassengersTrain" value="기차" />
+  <translation id="MaxWaitingPassengersMonorail" value="모노레일" />
+  <translation id="MaxWaitingPassengersShip" value="배" />
+  <translation id="MaxWaitingPassengersAirplane" value="비행기" />
+  <translation id="MaxWaitingPassengersCableCar" value="케이블 카" />
+  <translation id="MaxWaitingPassengersHotAirBalloon" value="열기구" />
 
 </language>
