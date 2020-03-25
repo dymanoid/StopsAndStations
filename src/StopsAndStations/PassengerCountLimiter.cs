@@ -1,4 +1,4 @@
-﻿// <copyright file="PassengerCountLimiter.cs" company="dymanoid">
+// <copyright file="PassengerCountLimiter.cs" company="dymanoid">
 // Copyright (c) dymanoid. All rights reserved.
 // </copyright>
 
@@ -70,7 +70,7 @@ namespace StopsAndStations
             for (int i = 0; i < instances.Length; ++i)
             {
                 ref var instance = ref instances[i];
-                var pathId = instance.m_path;
+                uint pathId = instance.m_path;
                 if (pathId != 0 && (instance.m_flags & InstanceUsingTransport) == InstanceUsingTransport)
                 {
                     var pathPosition = pathUnits[pathId].GetPosition(instance.m_pathPositionIndex >> 1);
@@ -90,14 +90,14 @@ namespace StopsAndStations
                 return;
             }
 
-            var step = SimulationManager.instance.m_currentFrameIndex & StepMask;
-            var startIndex = step * StepSize;
-            var endIndex = (step + 1) * StepSize;
+            uint step = SimulationManager.instance.m_currentFrameIndex & StepMask;
+            uint startIndex = step * StepSize;
+            uint endIndex = (step + 1) * StepSize;
 
-            for (var i = startIndex; i < endIndex; ++i)
+            for (uint i = startIndex; i < endIndex; ++i)
             {
                 ref var instance = ref instances[i];
-                var pathId = instance.m_path;
+                uint pathId = instance.m_path;
                 if (pathId != 0
                     && instance.m_waitCounter == 0
                     && (instance.m_flags & InstanceUsingTransport) == InstanceUsingTransport)
@@ -116,7 +116,7 @@ namespace StopsAndStations
 
         private int GetMaximumAllowedPassengers(ushort nodeId)
         {
-            var transportLineId = nodes[nodeId].m_transportLine;
+            ushort transportLineId = nodes[nodeId].m_transportLine;
             if (transportLineId == 0)
             {
                 return int.MaxValue;

@@ -1,4 +1,4 @@
-﻿// <copyright file="StopsAndStationsMod.cs" company="dymanoid">
+// <copyright file="StopsAndStationsMod.cs" company="dymanoid">
 // Copyright (c) dymanoid. All rights reserved.
 // </copyright>
 
@@ -155,7 +155,7 @@ namespace StopsAndStations
 
         private static string GetModPath()
         {
-            PluginManager.PluginInfo pluginInfo = PluginManager.instance.GetPluginsInfo()
+            var pluginInfo = PluginManager.instance.GetPluginsInfo()
                 .FirstOrDefault(pi => pi.publishedFileID.AsUInt64 == WorkshopId);
 
             return pluginInfo?.modPath;

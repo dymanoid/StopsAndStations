@@ -1,4 +1,4 @@
-﻿// <copyright file="ConfigUI.cs" company="dymanoid">
+// <copyright file="ConfigUI.cs" company="dymanoid">
 //     Copyright (c) dymanoid. All rights reserved.
 // </copyright>
 
@@ -81,7 +81,7 @@ namespace StopsAndStations
 
             foreach (var tab in properties.GroupBy(p => p.Attribute.TabId).OrderBy(p => p.Key))
             {
-                IContainerViewItem tabItem = itemFactory.CreateTabItem(tab.Key);
+                var tabItem = itemFactory.CreateTabItem(tab.Key);
                 viewItems.Add(tabItem);
 
                 foreach (var group in tab.GroupBy(p => p.Attribute.GroupId).OrderBy(p => p.Key))
@@ -99,7 +99,7 @@ namespace StopsAndStations
 
                     foreach (var item in group.OrderBy(i => i.Attribute.Order))
                     {
-                        IViewItem viewItem = CreateViewItem(containerItem, item.Property, configProvider, itemFactory);
+                        var viewItem = CreateViewItem(containerItem, item.Property, configProvider, itemFactory);
                         if (viewItem != null)
                         {
                             viewItems.Add(viewItem);
@@ -115,10 +115,7 @@ namespace StopsAndStations
             ConfigurationProvider<ModConfiguration> configProvider,
             IViewItemFactory itemFactory)
         {
-            object Config()
-            {
-                return configProvider.Configuration;
-            }
+            object Config() => configProvider.Configuration;
 
             if (property.PropertyType == typeof(int)
                 && GetCustomItemAttribute<ConfigItemUIBaseAttribute>(property) is ConfigItemSliderAttribute slider)
