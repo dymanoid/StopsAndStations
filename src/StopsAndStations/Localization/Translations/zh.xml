@@ -5,6 +5,7 @@
   <translation id="MaximumPassengers" value="在车站停靠的最大乘客人数：" />
 
   <translation id="MaxWaitingPassengersBus" value="公交" />
+  <translation id="MaxWaitingPassengersTrolleybus" value="电车" />
   <translation id="MaxWaitingPassengersEvacuationBus" value="校车" />
   <translation id="MaxWaitingPassengersTouristBus" value="观光巴士" />
   <translation id="MaxWaitingPassengersTram" value="电车" />
@@ -15,5 +16,6 @@
   <translation id="MaxWaitingPassengersAirplane" value="飞机" />
   <translation id="MaxWaitingPassengersCableCar" value="缆车" />
   <translation id="MaxWaitingPassengersHotAirBalloon" value="热气球" />
+  <translation id="MaxWaitingPassengersHelicopter" value="直升机" />
 
 </language>

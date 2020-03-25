@@ -130,6 +130,9 @@ namespace StopsAndStations
                 case TransportInfo.TransportType.Bus:
                     return Configuration.MaxWaitingPassengersBus;
 
+                case TransportInfo.TransportType.Trolleybus:
+                    return Configuration.MaxWaitingPassengersTrolleybus;
+
                 case TransportInfo.TransportType.TouristBus:
                     return Configuration.MaxWaitingPassengersTouristBus;
 
@@ -156,6 +159,9 @@ namespace StopsAndStations
 
                 case TransportInfo.TransportType.HotAirBalloon:
                     return Configuration.MaxWaitingPassengersHotAirBalloon;
+
+                case TransportInfo.TransportType.Helicopter:
+                    return Configuration.MaxWaitingPassengersHelicopter;
 
                 default:
                     return int.MaxValue;

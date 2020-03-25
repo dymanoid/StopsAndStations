@@ -5,6 +5,7 @@
   <translation id="MaximumPassengers" value="각 정거장 당 최대 승객 수용량 :" />
 
   <translation id="MaxWaitingPassengersBus" value="여객 버스" />
+  <translation id="MaxWaitingPassengersTrolleybus" value="무궤도 전차" />
   <translation id="MaxWaitingPassengersEvacuationBus" value="대피 버스" />
   <translation id="MaxWaitingPassengersTouristBus" value="투어 버스" />
   <translation id="MaxWaitingPassengersTram" value="트램" />
@@ -15,5 +16,6 @@
   <translation id="MaxWaitingPassengersAirplane" value="비행기" />
   <translation id="MaxWaitingPassengersCableCar" value="케이블 카" />
   <translation id="MaxWaitingPassengersHotAirBalloon" value="열기구" />
+  <translation id="MaxWaitingPassengersHelicopter" value="헬리콥터" />
 
 </language>

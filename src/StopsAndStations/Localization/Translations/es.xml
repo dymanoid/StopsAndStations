@@ -5,6 +5,7 @@
   <translation id="MaximumPassengers" value="Valor máximo de pasajeros esperando en la parada:" />
 
   <translation id="MaxWaitingPassengersBus" value="Línea de bus" />
+  <translation id="MaxWaitingPassengersTrolleybus" value="Troleybús" />
   <translation id="MaxWaitingPassengersEvacuationBus" value="Bus de Evacuación" />
   <translation id="MaxWaitingPassengersTouristBus" value="Bus de Turismo" />
   <translation id="MaxWaitingPassengersTram" value="Tranvía" />
@@ -15,5 +16,6 @@
   <translation id="MaxWaitingPassengersAirplane" value="Avión" />
   <translation id="MaxWaitingPassengersCableCar" value="Teleférico" />
   <translation id="MaxWaitingPassengersHotAirBalloon" value="Globo Aerostático" />
+  <translation id="MaxWaitingPassengersHelicopter" value="Helicóptero" />
 
 </language>

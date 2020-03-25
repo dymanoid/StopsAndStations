@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<language id="pt" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<language id="pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
   <translation id="Passengers" value="Configuracao" />
   <translation id="MaximumPassengers" value="Maximo de passageiros aguardando em uma linha de transporte:" />
 
   <translation id="MaxWaitingPassengersBus" value="Onibus de linha" />
+  <translation id="MaxWaitingPassengersTrolleybus" value="Trólebus" />
   <translation id="MaxWaitingPassengersEvacuationBus" value="Onibus de evacuacao" />
   <translation id="MaxWaitingPassengersTouristBus" value="Onibus de turismo" />
   <translation id="MaxWaitingPassengersTram" value="Bonde" />
@@ -17,5 +16,6 @@
   <translation id="MaxWaitingPassengersAirplane" value="Avioes" />
   <translation id="MaxWaitingPassengersCableCar" value="Teleferico" />
   <translation id="MaxWaitingPassengersHotAirBalloon" value="Balao de ar quente" />
+  <translation id="MaxWaitingPassengersHelicopter" value="Helicóptero" />
 
 </language>

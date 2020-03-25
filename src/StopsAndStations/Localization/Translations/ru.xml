@@ -5,6 +5,7 @@
   <translation id="MaximumPassengers" value="Максимальное число пассажиров, ожидающих на остановке:" />
 
   <translation id="MaxWaitingPassengersBus" value="Автобус" />
+  <translation id="MaxWaitingPassengersTrolleybus" value="Trolleybus" />
   <translation id="MaxWaitingPassengersEvacuationBus" value="Эвакуац. автобус" />
   <translation id="MaxWaitingPassengersTouristBus" value="Экскурс. автобус" />
   <translation id="MaxWaitingPassengersTram" value="Трамвай" />
@@ -15,5 +16,6 @@
   <translation id="MaxWaitingPassengersAirplane" value="Самолёт" />
   <translation id="MaxWaitingPassengersCableCar" value="Канатная дор." />
   <translation id="MaxWaitingPassengersHotAirBalloon" value="Возд. шар" />
+  <translation id="MaxWaitingPassengersHelicopter" value="Вертолёт" />
   
 </language>

@@ -3,7 +3,9 @@
 
   <translation id="Passengers" value="Yapılandırma" />
   <translation id="MaximumPassengers" value="Bir taşıma hattında bekleyen maksimum yolcu sayısı:" />
+
   <translation id="MaxWaitingPassengersBus" value="Hat Otobüsü" />
+  <translation id="MaxWaitingPassengersTrolleybus" value="Troleybüs" />
   <translation id="MaxWaitingPassengersEvacuationBus" value="Tahliye Otobüsü" />
   <translation id="MaxWaitingPassengersTouristBus" value="Gezi otobüsü" />
   <translation id="MaxWaitingPassengersTram" value="Tramvay" />
@@ -14,5 +16,6 @@
   <translation id="MaxWaitingPassengersAirplane" value="Uçak" />
   <translation id="MaxWaitingPassengersCableCar" value="Teleferik" />
   <translation id="MaxWaitingPassengersHotAirBalloon" value="Sıcak Hava Balonu" />
+  <translation id="MaxWaitingPassengersHelicopter" value="Helikopter" />
  
 </language>
