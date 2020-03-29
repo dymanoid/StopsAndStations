@@ -5,17 +5,17 @@
   <translation id="MaximumPassengers" value="Максимальное число пассажиров, ожидающих на остановке:" />
 
   <translation id="MaxWaitingPassengersBus" value="Автобус" />
-  <translation id="MaxWaitingPassengersTrolleybus" value="Trolleybus" />
-  <translation id="MaxWaitingPassengersEvacuationBus" value="Эвакуац. автобус" />
-  <translation id="MaxWaitingPassengersTouristBus" value="Экскурс. автобус" />
+  <translation id="MaxWaitingPassengersTrolleybus" value="Троллейбус" />
+  <translation id="MaxWaitingPassengersEvacuationBus" value="Эвакуационный автобус" />
+  <translation id="MaxWaitingPassengersTouristBus" value="Экскурсионный автобус" />
   <translation id="MaxWaitingPassengersTram" value="Трамвай" />
   <translation id="MaxWaitingPassengersMetro" value="Метро" />
   <translation id="MaxWaitingPassengersTrain" value="Поезд" />
-  <translation id="MaxWaitingPassengersMonorail" value="Монорейл" />
+  <translation id="MaxWaitingPassengersMonorail" value="Монорельс" />
   <translation id="MaxWaitingPassengersShip" value="Корабль" />
   <translation id="MaxWaitingPassengersAirplane" value="Самолёт" />
-  <translation id="MaxWaitingPassengersCableCar" value="Канатная дор." />
-  <translation id="MaxWaitingPassengersHotAirBalloon" value="Возд. шар" />
+  <translation id="MaxWaitingPassengersCableCar" value="Канатная дорога" />
+  <translation id="MaxWaitingPassengersHotAirBalloon" value="Воздушный шар" />
   <translation id="MaxWaitingPassengersHelicopter" value="Вертолёт" />
   
 </language>
